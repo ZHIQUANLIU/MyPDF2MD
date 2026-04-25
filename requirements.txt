@@ -1,0 +1,7 @@
+pymupdf4llm
+nicegui
+google-generativeai
+python-dotenv
+markdown2
+pygments
+starlette<1.0
