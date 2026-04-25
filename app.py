@@ -86,6 +86,11 @@ class PDFConverter:
                 md_text = await self.refine_with_ai(md_text)
                 log_view.push("✨ AI refinement complete")
             
+            # 2.5 Fix image paths to be relative (e.g., ![](images/image-1.png))
+            import re
+            md_text = re.sub(r'!\[\]\((image-.*?\.png)\)', r'![](images/\1)', md_text)
+            log_view.push("🔗 Image paths adjusted to relative links")
+            
             self.current_md = md_text
             output_area.content = md_text
             
